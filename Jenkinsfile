@@ -66,7 +66,7 @@ pipeline {
                 script {
                     withEnv(["KUBECONFIG=${KUBE_CONFIG_PATH}"]) {
                         bat """
-                            helm install taskapp ./helmchart --set frontend.version=${params.VERSION} --set api.version=${params.VERSION} --set mongo.version=${params.VERSION}
+                            helm install worktask ./helmchart --set frontend.version=${params.VERSION} --set api.version=${params.VERSION} --set mongo.version=${params.VERSION}
                             ping localhost -4 -n 5
                             kubectl get all
                             ping localhost -4 -n 5
