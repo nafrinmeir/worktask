@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+
+    <h2>Add User</h2>
+    <form method="POST">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="hidden" name="action" value="add_user">
+        <button type="submit">Add User</button>
+    </form>
+
+    <h2>Assign Task</h2>
+    <form method="POST">
+        <input type="text" name="title" placeholder="Task Title" required>
+        <input type="text" name="description" placeholder="Task Description" required>
+        <input type="text" name="assignee" placeholder="Assign to Username" required>
+        <input type="hidden" name="action" value="add_task">
+        <button type="submit">Add Task</button>
+    </form>
+
+    <h2>Users & Tasks</h2>
+    {% for user in users %}
+        <div>
+            <h3>{{ user.username }}</h3>
+            <ul>
+                {% for task in user.tasks %}
+                    <li><strong>{{ task.title }}</strong> - {{ task.description }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+</body>
+</html>
