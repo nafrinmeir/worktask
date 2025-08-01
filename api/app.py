@@ -47,12 +47,12 @@ def get_tasks(username):
 @app.route("/tasks", methods=["POST"])
 def create_task():
     data = request.json
-    assignee = data.get("assignee", "").strip().lower()
-    if not assignee or not users.find_one({"username": assignee}):
-        return jsonify({"error": "Invalid or missing assignee"}), 400
-    data["assignee"] = assignee  # normalize
+    if not data or not all(k in data for k in ("title", "description", "assignee")):
+        return jsonify({"error": "Missing required fields"}), 400
+
     result = tasks.insert_one(data)
     return jsonify({"_id": str(result.inserted_id)}), 201
+
 
 
 @app.route("/tasks/<task_id>", methods=["DELETE"])
