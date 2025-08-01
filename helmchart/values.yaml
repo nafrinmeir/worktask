@@ -1,14 +1,14 @@
-front:
+frontend:
   replicas: 1
-  image: nafrin/python-frontend
+  image: meirnafrin/worktask-frontend
   version: "{{ .Values.front.version }}"
   port: 5000
   targetPort: 5000
   backendUrl: "http://back:5001"
 
-back:
+api:
   replicas: 1
-  image: nafrin/python-backend
+  image: meirnafrin/worktask-api
   version: "{{ .Values.back.version }}"
   port: 5001
   targetPort: 5001
@@ -16,7 +16,7 @@ back:
 
 mongo:
   replicas: 1
-  image: nafrin/python-mongodb
+  image: meirnafrin/mongo
   version: "{{ .Values.mongo.version }}"
   port: 27017
   targetPort: 27017 
