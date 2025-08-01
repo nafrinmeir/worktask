@@ -9,7 +9,7 @@ class TestTaskAPI(unittest.TestCase):
         cls.client = app.app.test_client()
 
         # Ensure MongoDB is available and clean the collection
-        mongo_client = MongoClient("mongodb://localhost:27017/")
+        mongo_client = MongoClient("mongodb://mongo:27017/")
         db = mongo_client["TaskListTest"]
         cls.task_collection = db["AllTaskTest"]
 
