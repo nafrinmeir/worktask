@@ -28,3 +28,4 @@ spec:
   ports:
     - port: 5050
       targetPort: 5050
+  type: LoadBalancer
