@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: yourdockerhubuser/worktask-frontend
+          image: {{{ .Values.frontend.image }}:{{ .Values.frontend.version }}
           ports:
             - containerPort: 5050
 ---
