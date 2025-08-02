@@ -27,5 +27,6 @@ spec:
     app: api
   ports:
     - port: 5051
-      targetPort: 5051
+      targetPort: 5001
   type: LoadBalancer
+
