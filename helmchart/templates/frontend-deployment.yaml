@@ -27,5 +27,6 @@ spec:
     app: frontend
   ports:
     - port: 5050
-      targetPort: 5050
+      targetPort: 5000
   type: LoadBalancer
+
